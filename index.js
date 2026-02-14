@@ -23,7 +23,7 @@ app.use(cookieParser());
 // CORS Configuration for deployed frontend
 app.use(
   cors({
-    origin: "https://noteappatfrontend.onrender.com",
+    origin: "https://note-appatfrontend.onrender.com",
     credentials: true,
   })
 );
