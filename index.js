@@ -20,24 +20,19 @@ app.use(express.urlencoded({ extended: true }));
 // Cookie Parser
 app.use(cookieParser());
 
-// ✅ CORS Configuration (Local + Production)
+// CORS Configuration for deployed frontend
 app.use(
   cors({
-    origin: [
-      "http://localhost:5173",
-      "https://noteapp-frontend-ks77.onrender.com"
-    ],
+    origin: "https://noteapp-frontend-ks77.onrender.com",
     credentials: true,
   })
 );
 
 /* ================= ROUTES ================= */
-
 app.use("/api/auth", authRoutes);
 app.use("/api/note", noteRoutes);
 
 /* ================= HEALTH CHECK ================= */
-
 app.get("/", (req, res) => {
   res.status(200).json({
     success: true,
@@ -46,7 +41,6 @@ app.get("/", (req, res) => {
 });
 
 /* ================= START SERVER ================= */
-
 const PORT = process.env.PORT || 5000;
 
 const startServer = async () => {
