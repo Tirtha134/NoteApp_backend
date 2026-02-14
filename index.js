@@ -20,10 +20,13 @@ app.use(express.urlencoded({ extended: true }));
 // Cookie Parser
 app.use(cookieParser());
 
-// CORS Configuration (Vite runs on 5173)
+// ✅ CORS Configuration (Local + Production)
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: [
+      "http://localhost:5173",
+      "https://noteapp-frontend-ks77.onrender.com"
+    ],
     credentials: true,
   })
 );
